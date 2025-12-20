@@ -13,10 +13,10 @@ struct HomeView: View {
     var body: some View {
         NavigationStack(path: $channels) {
             VStack {
-                Button("#general") {
+                ChannelView(channelName: "general") {
                     channels = ["general"]
                 }
-                Button("#all") {
+                ChannelView(channelName: "all") {
                     channels.append("all")
                 }
             }.navigationDestination(for: String.self) { channel in
