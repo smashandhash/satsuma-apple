@@ -12,7 +12,7 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack(path: $channels) {
-            VStack {
+            VStack(alignment: .leading, spacing: 10) {
                 ChannelView(channelName: "general") {
                     channels = ["general"]
                 }

@@ -8,18 +8,22 @@
 import SwiftUI
 
 struct ChannelView: View {
-    @State var channelName = "channel-name"
-    @State var action: (() -> Void)?
+    let channelName: String
+    let action: (() -> Void)
     
     var body: some View {
-        HStack {
-            Image(systemName: "leaf")
-            
-            Text(channelName)
+        Button(action: action) {
+            HStack {
+                Image(systemName: "leaf")
+                    .tint(.gray)
+                
+                Text(channelName)
+                    .tint(.black)
+            }
         }
     }
 }
 
 #Preview {
-    ChannelView()
+    ChannelView(channelName: "Test", action: { print("Test pressed") })
 }
