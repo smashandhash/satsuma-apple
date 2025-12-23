@@ -8,24 +8,39 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var channels = [String]()
+    @State var channels: [NostrChannel]
     
     var body: some View {
-        NavigationStack(path: $channels) {
-            VStack(alignment: .leading, spacing: 10) {
-                ChannelView(channelName: "general") {
-                    channels = ["general"]
-                }
-                ChannelView(channelName: "all") {
-                    channels.append("all")
-                }
-            }.navigationDestination(for: String.self) { channel in
-                Text("You're at the Channel named \(channel).")
+        NavigationStack {
+            ScrollView {
+                VStack(spacing: 10) {
+                    ForEach(channels) { channel in
+                        NavigationLink(channel.channelName, value: channel.threads)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                }.navigationDestination(for: NostrChannel.self) { channel in
+                    ThreadsView(threads: channel.threads)
+                }.padding()
             }
+            #if !os(macOS)
+            .navigationBarTitleDisplayMode(.inline)
+            #endif
+            .navigationTitle("Home")
+                .toolbar {
+                    ToolbarItem(placement: .navigation) {
+                        Text("W")
+                    }
+                }
         }
     }
 }
 
 #Preview {
-    HomeView()
+    HomeView(channels: Array(repeating: NostrChannel(id: UUID(), channelName: "# general", threads: Array(repeating: NostrThread(id: UUID(), senderKey: "Key", senderName: "Sender's Name", senderImage: "Sender's Image", content: "Wow, a content.\nWonder it's real.", imageContent: nil), count: 100)), count: 100))
+}
+
+struct NostrChannel: Hashable, Identifiable {
+    let id: UUID
+    let channelName: String
+    let threads: [NostrThread]
 }

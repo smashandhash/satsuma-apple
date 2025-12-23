@@ -9,11 +9,13 @@ import SwiftUI
 
 struct MainView: View {
     @State private var currentTab: Tabs = .Home
+    @State var channels: [NostrChannel] = []
     
     var body: some View {
         TabView(selection: $currentTab) {
             Tab("Home", systemImage: "house", value: .Home) {
-                HomeView()
+                HomeView(channels: channels)
+                    .padding()
             }
             
             Tab("DMs", systemImage: "bubble", value: .DMs) {
@@ -28,7 +30,7 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView()
+    MainView(channels: Array(repeating: NostrChannel(id: UUID(), channelName: "# general", threads: Array(repeating: NostrThread(id: UUID(), senderKey: "Key", senderName: "Sender's Name", senderImage: "Sender's Image", content: "Wow, a content.\nWonder it's real.", imageContent: nil), count: 100)), count: 100))
 }
 
 enum Tabs: Equatable, Hashable {
