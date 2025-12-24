@@ -9,17 +9,21 @@ import SwiftUI
 
 struct SingleThreadView: View {
     @State var thread: NostrThread
-    @Binding var isSameAsPreviousSender: Bool
+    @Binding var existingPreviousThread: NostrThread?
+    
+    init(thread: NostrThread, existingPreviousThread: Binding<NostrThread?>? = nil) {
+        self.thread = thread
+        self._existingPreviousThread = existingPreviousThread ?? Binding.constant(nil)
+    }
     
     var body: some View {
-        
         HStack(spacing: 10) {
-            if !isSameAsPreviousSender {
+            if thread.senderKey != existingPreviousThread?.senderKey {
                 AsyncImage(url: URL(string: thread.senderImage))
                     .frame(width: 50, height: 50)
             }
             VStack(alignment: .leading, spacing: 10) {
-                if !isSameAsPreviousSender {
+                if thread.senderKey != existingPreviousThread?.senderKey {
                     Text(thread.senderName)
                         .fontWeight(.bold)
                         .frame(alignment: .leading)
@@ -32,12 +36,14 @@ struct SingleThreadView: View {
                     AsyncImage(url: URL(string: imageContent))
                 }
             }
+        }.task {
+            existingPreviousThread = thread
         }
     }
 }
 
 #Preview {
-    @Previewable @State var isSameAsPreviousSender = true
+    @Previewable var previousThread: Binding<NostrThread?>? = Binding.constant(NostrThread(id: UUID(), senderKey: "Key", senderName: "Sender's name", senderImage: "Image", content: "This is content.", imageContent: nil))
     
-    SingleThreadView(thread: NostrThread(id: UUID(), senderKey: "Key", senderName: "Sender's name", senderImage: "Image", content: "This is content.", imageContent: nil), isSameAsPreviousSender: $isSameAsPreviousSender)
+    SingleThreadView(thread: NostrThread(id: UUID(), senderKey: "Key", senderName: "Sender's name", senderImage: "Image", content: "This is content.", imageContent: nil), existingPreviousThread: previousThread)
 }

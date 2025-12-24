@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct ThreadsView: View {
-    @State private var previousSenderKey = "Key"
-    @State private var isSameAsPreviousSender = false
+    @State private var previousThread: NostrThread? = nil
     @State var threads: [NostrThread] = []
     
     var body: some View {
         ScrollView(.vertical) {
             VStack(spacing: 5) {
                 ForEach(threads) { thread in
-                    SingleThreadView(thread: thread, isSameAsPreviousSender: $isSameAsPreviousSender)
+                    SingleThreadView(thread: thread, existingPreviousThread: $previousThread)
                 }
             }.frame(maxWidth: .infinity, alignment: .leading)
         }
