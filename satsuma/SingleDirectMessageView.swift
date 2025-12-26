@@ -13,17 +13,20 @@ struct SingleDirectMessageView: View {
     var body: some View {
         HStack(spacing: 10) {
             AsyncImage(url: URL(string: message.senderImage))
+                .frame(width: 50, height: 50)
             
             VStack(spacing: 10) {
                 Text(message.senderName)
                     .fontWeight(.bold)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 
                 Text(message.threads.last?.content ?? "")
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
     }
 }
 
 #Preview {
-    SingleDirectMessageView(message: NostrDirectMessage(senderKey: "Sender Key", senderImage: "Sender's Image", senderName: "Sender Name", threads: Array(repeating: NostrThread(id: UUID(), senderKey: "Another Sender Key", senderName: "Sender Name", senderImage: "Sender Image", content: "Must be the content.", imageContent: nil), count: 10)))
+    SingleDirectMessageView(message: NostrDirectMessage(id: UUID(), senderKey: "Sender Key", senderImage: "Sender's Image", senderName: "Sender Name", threads: Array(repeating: NostrThread(id: UUID(), senderKey: "Another Sender Key", senderName: "Sender Name", senderImage: "Sender Image", content: "Must be the content.", imageContent: nil), count: 10)))
 }

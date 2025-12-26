@@ -14,18 +14,26 @@ struct DirectMessagesView: View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 10) {
-                    SingleDirectMessageView()
+                    ForEach(messages) { message in
+                        SingleDirectMessageView(message: message)
+                            .frame(alignment: .leading)
+                    }
                 }
             }
-        }.navigationTitle("DMs")
+            #if !os(macOS)
+            .navigationBarTitleDisplayMode(.inline)
+            #endif
+            .navigationTitle("DMs")
+        }
     }
 }
 
 #Preview {
-    DirectMessagesView(messages: Array(repeating: NostrDirectMessage(senderKey: "Sender Key", senderImage: "Sender's Image", senderName: "Sender Name", threads: Array(repeating: NostrThread(id: UUID(), senderKey: "Another Sender Key", senderName: "Sender Name", senderImage: "Sender Image", content: "Must be the content.", imageContent: nil), count: 10)), count: 20))
+    DirectMessagesView(messages: Array(repeating: NostrDirectMessage(id: UUID(), senderKey: "Sender Key", senderImage: "Sender's Image", senderName: "Sender Name", threads: Array(repeating: NostrThread(id: UUID(), senderKey: "Another Sender Key", senderName: "Sender Name", senderImage: "Sender Image", content: "Must be the content.", imageContent: nil), count: 10)), count: 20))
 }
 
-struct NostrDirectMessage {
+struct NostrDirectMessage: Identifiable {
+    let id: UUID
     let senderKey: String
     let senderImage: String
     let senderName: String
