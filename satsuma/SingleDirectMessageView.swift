@@ -15,13 +15,17 @@ struct SingleDirectMessageView: View {
             AsyncImage(url: URL(string: message.senderImage))
                 .frame(width: 50, height: 50)
             
-            VStack(spacing: 10) {
-                Text(message.senderName)
-                    .fontWeight(.bold)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                
-                Text(message.threads.last?.content ?? "")
-                    .frame(maxWidth: .infinity, alignment: .leading)
+            NavigationLink {
+                ThreadsView(threads: message.threads)
+            } label: {
+                VStack(spacing: 10) {
+                    Text(message.senderName)
+                        .fontWeight(.bold)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Text(message.threads.last?.content ?? "")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
             }
         }
     }
