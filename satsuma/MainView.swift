@@ -11,6 +11,7 @@ struct MainView: View {
     @State private var currentTab: Tabs = .Home
     @State var channels: [NostrChannel] = []
     @State var messages: [NostrDirectMessage] = []
+    @State var activities: [NostrActivity] = []
     
     var body: some View {
         TabView(selection: $currentTab) {
@@ -25,14 +26,15 @@ struct MainView: View {
             }
             
             Tab("Activity", systemImage: "bell", value: .Activity) {
-                Text("This is Activity page")
+                ActivitiesVIew(activities: activities)
+                    .padding()
             }
         }.tabViewStyle(.sidebarAdaptable)
     }
 }
 
 #Preview {
-    MainView(channels: Array(repeating: NostrChannel(id: UUID(), channelName: "# general", threads: Array(repeating: NostrThread(id: UUID(), senderKey: "Key", senderName: "Sender's Name", senderImage: "Sender's Image", content: "Wow, a content.\nWonder it's real.", imageContent: nil), count: 100)), count: 100), messages: Array(repeating: NostrDirectMessage(id: UUID(), senderKey: "Sender Key", senderImage: "Sender's Image", senderName: "Sender Name", threads: Array(repeating: NostrThread(id: UUID(), senderKey: "Another Sender Key", senderName: "Sender Name", senderImage: "Sender Image", content: "Must be the content.", imageContent: nil), count: 10)), count: 20))
+    MainView(channels: Array(repeating: NostrChannel(id: UUID(), channelName: "# general", threads: Array(repeating: NostrThread(id: UUID(), senderKey: "Key", senderName: "Sender's Name", senderImage: "Sender's Image", content: "Wow, a content.\nWonder it's real.", imageContent: nil), count: 100)), count: 100), messages: Array(repeating: NostrDirectMessage(id: UUID(), senderKey: "Sender Key", senderImage: "Sender's Image", senderName: "Sender Name", threads: Array(repeating: NostrThread(id: UUID(), senderKey: "Another Sender Key", senderName: "Sender Name", senderImage: "Sender Image", content: "Must be the content.", imageContent: nil), count: 10)), count: 20), activities: Array(repeating: NostrActivity(id: UUID(), thread: NostrThread(id: UUID(), senderKey: "Sender's Key", senderName: "Sender Name", senderImage: "Sender's Image", content: "Here's a content.", imageContent: nil)), count: 20))
 }
 
 enum Tabs: Equatable, Hashable {
