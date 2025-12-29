@@ -11,8 +11,16 @@ struct ActivitiesVIew: View {
     @State var activities: [NostrActivity]
     
     var body: some View {
-        ForEach(activities) { activity in
-            SingleActivityView(activity: activity)
+        NavigationStack {
+            ScrollView {
+                ForEach(activities) { activity in
+                    SingleActivityView(activity: activity)
+                }
+            }
+            #if !os(macOS)
+            .navigationBarTitleDisplayMode(.inline)
+            #endif
+            .navigationTitle("Activities")
         }
     }
 }

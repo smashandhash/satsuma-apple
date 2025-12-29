@@ -16,7 +16,6 @@ struct DirectMessagesView: View {
                 VStack(spacing: 10) {
                     ForEach(messages) { message in
                         SingleDirectMessageView(message: message)
-                            .frame(alignment: .leading)
                     }
                 }
             }
