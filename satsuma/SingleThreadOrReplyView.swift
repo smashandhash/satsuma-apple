@@ -1,0 +1,49 @@
+//
+//  SingleThreadOrReplyView.swift
+//  satsuma
+//
+//  Created by Gogo on 22/12/25.
+//
+
+import SwiftUI
+
+struct SingleThreadOrReplyView: View {
+    @State var content: NostrContent
+    @Binding var existingPreviousContent: NostrContent?
+    
+    init(content: NostrContent, existingPreviousContent: Binding<NostrContent?>? = nil) {
+        self.content = content
+        self._existingPreviousContent = existingPreviousContent ?? Binding.constant(nil)
+    }
+    
+    var body: some View {
+        HStack(spacing: 10) {
+            if content.senderKey != existingPreviousContent?.senderKey {
+                AsyncImage(url: URL(string: content.senderImage))
+                    .frame(width: 50, height: 50)
+            }
+            VStack(alignment: .leading, spacing: 10) {
+                if content.senderKey != existingPreviousContent?.senderKey {
+                    Text(content.senderName)
+                        .fontWeight(.bold)
+                        .frame(alignment: .leading)
+                }
+                
+                Text(content.content)
+                    .fixedSize(horizontal: false, vertical: true)
+                
+                if let imageContent = content.imageContent {
+                    AsyncImage(url: URL(string: imageContent))
+                }
+            }
+        }.task {
+            existingPreviousContent = content
+        }
+    }
+}
+
+#Preview {
+    @Previewable var previousContent: Binding<NostrContent?>? = Binding.constant(NostrContent(senderKey: "Key", senderName: "Sender's name", senderImage: "Image", content: "This is content.", imageContent: nil))
+    
+    SingleThreadOrReplyView(content: NostrContent(senderKey: "Key", senderName: "Sender's name", senderImage: "Image", content: "This is content.", imageContent: nil), existingPreviousContent: previousContent)
+}

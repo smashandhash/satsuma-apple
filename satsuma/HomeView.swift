@@ -36,7 +36,7 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(channels: Array(repeating: NostrChannel(id: UUID(), channelName: "# general", threads: Array(repeating: NostrThread(id: UUID(), senderKey: "Key", senderName: "Sender's Name", senderImage: "Sender's Image", content: "Wow, a content.\nWonder it's real.", imageContent: nil), count: 100)), count: 100))
+    HomeView(channels: Array(repeating: NostrChannel(id: UUID(), channelName: "# general", threads: Array(repeating: NostrThread(id: UUID(), content: NostrContent(senderKey: "Key", senderName: "Sender's Name", senderImage: "Sender's Image", content: "Wow, a content.\nWonder it's real.", imageContent: nil), replies: []), count: 100)), count: 100))
 }
 
 struct NostrChannel: Hashable, Identifiable {

@@ -12,15 +12,15 @@ struct SingleActivityView: View {
     
     var body: some View {
         HStack(alignment: .top) {
-            AsyncImage(url: URL(string: activity.thread.senderImage))
+            AsyncImage(url: URL(string: activity.thread.content.senderImage))
                 .frame(width: 50, height: 50)
             
             VStack(alignment: .leading) {
-                Text(activity.thread.senderName)
+                Text(activity.thread.content.senderName)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .fontWeight(.bold)
                 
-                Text(activity.thread.content)
+                Text(activity.thread.content.content)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .fixedSize(horizontal: true, vertical: false)
                     .lineLimit(2)
@@ -30,5 +30,5 @@ struct SingleActivityView: View {
 }
 
 #Preview {
-    SingleActivityView(activity: NostrActivity(id: UUID(), thread: NostrThread(id: UUID(), senderKey: "Sender's Key", senderName: "Sender Name", senderImage: "Sender's Image", content: "Here's a content.\nAnother one.\nCan't get one.", imageContent: nil)))
+    SingleActivityView(activity: NostrActivity(id: UUID(), thread: NostrThread(id: UUID(), content: NostrContent(senderKey: "Sender's Key", senderName: "Sender Name", senderImage: "Sender's Image", content: "Here's a content.\nAnother one.\nCan't get one.", imageContent: nil), replies: [])))
 }

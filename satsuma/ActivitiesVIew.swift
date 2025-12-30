@@ -10,6 +10,7 @@ import SwiftUI
 struct ActivitiesVIew: View {
     @State var activities: [NostrActivity]
     
+    // TODO: Add Reply Implementation later
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -26,11 +27,10 @@ struct ActivitiesVIew: View {
 }
 
 #Preview {
-    ActivitiesVIew(activities: Array(repeating: NostrActivity(id: UUID(), thread: NostrThread(id: UUID(), senderKey: "Sender's Key", senderName: "Sender Name", senderImage: "Sender's Image", content: "Here's a content.", imageContent: nil)), count: 20))
+    ActivitiesVIew(activities: Array(repeating: NostrActivity(id: UUID(), thread: NostrThread(id: UUID(), content: NostrContent(senderKey: "Sender's Key", senderName: "Sender Name", senderImage: "Sender's Image", content: "Here's a content.", imageContent: nil), replies: [])), count: 20))
 }
 
 struct NostrActivity: Identifiable {
     let id: UUID
     let thread: NostrThread
-    // TODO: Add Reply Struct later
 }

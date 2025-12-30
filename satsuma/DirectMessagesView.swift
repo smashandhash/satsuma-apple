@@ -28,7 +28,7 @@ struct DirectMessagesView: View {
 }
 
 #Preview {
-    DirectMessagesView(messages: Array(repeating: NostrDirectMessage(id: UUID(), senderKey: "Sender Key", senderImage: "Sender's Image", senderName: "Sender Name", threads: Array(repeating: NostrThread(id: UUID(), senderKey: "Another Sender Key", senderName: "Sender Name", senderImage: "Sender Image", content: "Must be the content.", imageContent: nil), count: 10)), count: 20))
+    DirectMessagesView(messages: Array(repeating: NostrDirectMessage(id: UUID(), senderKey: "Sender Key", senderImage: "Sender's Image", senderName: "Sender Name", threads: Array(repeating: NostrThread(id: UUID(), content: NostrContent(senderKey: "Another Sender Key", senderName: "Sender Name", senderImage: "Sender Image", content: "Must be the content.", imageContent: nil), replies: []), count: 10)), count: 20))
 }
 
 struct NostrDirectMessage: Identifiable {

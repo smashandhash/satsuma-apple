@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ThreadsView: View {
-    @State private var previousThread: NostrThread? = nil
+    @State private var previousContent: NostrContent? = nil
     @State var threads: [NostrThread] = []
     
     var body: some View {
         ScrollView(.vertical) {
             VStack(spacing: 5) {
                 ForEach(threads) { thread in
-                    SingleThreadView(thread: thread, existingPreviousThread: $previousThread)
+                    SingleThreadOrReplyView(content: thread.content, existingPreviousContent: $previousContent)
                 }
             }.frame(maxWidth: .infinity, alignment: .leading)
         }
@@ -23,11 +23,16 @@ struct ThreadsView: View {
 }
 
 #Preview {
-    ThreadsView(threads: Array(repeating: NostrThread(id: UUID(), senderKey: "Key", senderName: "Sender's Name", senderImage: "Sender's Image", content: "This is a content \nThat's another content", imageContent: nil), count: 100))
+    ThreadsView(threads: Array(repeating: NostrThread(id: UUID(), content: NostrContent(senderKey: "Key", senderName: "Sender's Name", senderImage: "Sender's Image", content: "This is a content \nThat's another content", imageContent: nil), replies: []), count: 100))
 }
 
 struct NostrThread: Hashable, Identifiable {
     let id: UUID
+    let content: NostrContent
+    let replies: [NostrReply]
+}
+
+struct NostrContent: Hashable {
     let senderKey: String
     let senderName: String
     let senderImage: String
