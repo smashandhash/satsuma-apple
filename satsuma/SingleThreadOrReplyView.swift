@@ -21,16 +21,20 @@ struct SingleThreadOrReplyView: View {
             if content.senderKey != existingPreviousContent?.senderKey {
                 AsyncImage(url: URL(string: content.senderImage))
                     .frame(width: 50, height: 50)
+            } else {
+                Spacer()
+                    .frame(width: 50, height: 50)
             }
             VStack(alignment: .leading, spacing: 10) {
                 if content.senderKey != existingPreviousContent?.senderKey {
                     Text(content.senderName)
                         .fontWeight(.bold)
-                        .frame(alignment: .leading)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 
                 Text(content.content)
                     .fixedSize(horizontal: false, vertical: true)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 
                 if let imageContent = content.imageContent {
                     AsyncImage(url: URL(string: imageContent))

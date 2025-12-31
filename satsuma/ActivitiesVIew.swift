@@ -10,12 +10,16 @@ import SwiftUI
 struct ActivitiesVIew: View {
     @State var activities: [NostrActivity]
     
-    // TODO: Add Reply Implementation later
     var body: some View {
         NavigationStack {
             ScrollView {
                 ForEach(activities) { activity in
-                    SingleActivityView(activity: activity)
+                    NavigationLink {
+                        // TODO: Not sure this is a proper implementation to load a Thread or Replies
+                        ThreadsView(threads: [activity.thread])
+                    } label: {
+                        SingleActivityView(activity: activity)
+                    }
                 }
             }
             #if !os(macOS)

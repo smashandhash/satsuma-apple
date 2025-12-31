@@ -15,7 +15,11 @@ struct ThreadsView: View {
         ScrollView(.vertical) {
             VStack(spacing: 5) {
                 ForEach(threads) { thread in
-                    SingleThreadOrReplyView(content: thread.content, existingPreviousContent: $previousContent)
+                    NavigationLink {
+                        RepliesView(thread: thread)
+                    } label: {
+                        SingleThreadOrReplyView(content: thread.content, existingPreviousContent: $previousContent)
+                    }
                 }
             }.frame(maxWidth: .infinity, alignment: .leading)
         }
