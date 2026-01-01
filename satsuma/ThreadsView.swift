@@ -10,18 +10,28 @@ import SwiftUI
 struct ThreadsView: View {
     @State private var previousContent: NostrContent? = nil
     @State var threads: [NostrThread] = []
+    @State var textDraft: String = ""
     
     var body: some View {
-        ScrollView(.vertical) {
-            VStack(spacing: 5) {
-                ForEach(threads) { thread in
-                    NavigationLink {
-                        RepliesView(thread: thread)
-                    } label: {
-                        SingleThreadOrReplyView(content: thread.content, existingPreviousContent: $previousContent)
+        VStack(spacing: 5) {
+            ScrollView(.vertical) {
+                VStack(spacing: 5) {
+                    ForEach(threads) { thread in
+                        NavigationLink {
+                            RepliesView(thread: thread)
+                        } label: {
+                            SingleThreadOrReplyView(content: thread.content, existingPreviousContent: $previousContent)
+                        }
                     }
+                }.frame(maxWidth: .infinity, alignment: .leading)
+            }
+            
+            TextField("", text: $textDraft)
+                .onSubmit {
+                    // TODO: Send Nostr
                 }
-            }.frame(maxWidth: .infinity, alignment: .leading)
+                .border(.black)
+                .padding()
         }
     }
 }
