@@ -37,10 +37,12 @@ struct RepliesView: View {
 }
 
 #Preview {
-    RepliesView(thread: NostrThread(id: UUID(), content: NostrContent(senderKey: "Sender key", senderName: "Sender's name", senderImage: "Sender's Image", content: "This is a thread.", imageContent: nil), replies: Array.init(repeating: NostrReply(id: UUID(), content: NostrContent(senderKey: "Replier's Key", senderName: "Replier's Name", senderImage: "Replier's Image", content: "This is a reply's content.", imageContent: nil)), count: 20)))
+    RepliesView(thread: NostrThread.exampleWithReplies)
 }
 
 struct NostrReply: Hashable, Identifiable {
     let id: UUID
     let content: NostrContent
+    
+    static let example = NostrReply(id: UUID(), content: NostrContent.example)
 }

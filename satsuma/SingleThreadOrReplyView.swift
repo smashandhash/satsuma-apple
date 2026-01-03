@@ -47,7 +47,7 @@ struct SingleThreadOrReplyView: View {
 }
 
 #Preview {
-    @Previewable var previousContent: Binding<NostrContent?>? = Binding.constant(NostrContent(senderKey: "Key", senderName: "Sender's name", senderImage: "Image", content: "This is content.", imageContent: nil))
+    @Previewable var previousContent: Binding<NostrContent?>? = Binding.constant(NostrContent.example)
     
-    SingleThreadOrReplyView(content: NostrContent(senderKey: "Key", senderName: "Sender's name", senderImage: "Image", content: "This is content.", imageContent: nil), existingPreviousContent: previousContent)
+    SingleThreadOrReplyView(content: NostrContent.example, existingPreviousContent: previousContent)
 }

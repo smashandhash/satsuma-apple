@@ -1,5 +1,5 @@
 //
-//  ActivitiesVIew.swift
+//  ActivitiesView.swift
 //  satsuma
 //
 //  Created by Gogo on 28/12/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ActivitiesVIew: View {
+struct ActivitiesView: View {
     @State var activities: [NostrActivity]
     
     var body: some View {
@@ -35,10 +35,12 @@ struct ActivitiesVIew: View {
 }
 
 #Preview {
-    ActivitiesVIew(activities: Array(repeating: NostrActivity(id: UUID(), thread: NostrThread(id: UUID(), content: NostrContent(senderKey: "Sender's Key", senderName: "Sender Name", senderImage: "Sender's Image", content: "Here's a content.", imageContent: nil), replies: [])), count: 20))
+    ActivitiesView(activities: Array(repeating: NostrActivity.example, count: 20))
 }
 
 struct NostrActivity: Identifiable {
     let id: UUID
     let thread: NostrThread
+    
+    static let example = NostrActivity(id: UUID(), thread: NostrThread.exampleWithoutReplies)
 }

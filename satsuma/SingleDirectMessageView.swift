@@ -32,5 +32,5 @@ struct SingleDirectMessageView: View {
 }
 
 #Preview {
-    SingleDirectMessageView(message: NostrDirectMessage(id: UUID(), senderKey: "Sender Key", senderImage: "Sender's Image", senderName: "Sender Name", threads: Array(repeating: NostrThread(id: UUID(), content: NostrContent(senderKey: "Another Sender Key", senderName: "Sender Name", senderImage: "Sender Image", content: "Must be the content.", imageContent: nil), replies: []), count: 10)))
+    SingleDirectMessageView(message: NostrDirectMessage.example)
 }

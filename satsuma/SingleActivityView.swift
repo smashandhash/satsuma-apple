@@ -30,5 +30,5 @@ struct SingleActivityView: View {
 }
 
 #Preview {
-    SingleActivityView(activity: NostrActivity(id: UUID(), thread: NostrThread(id: UUID(), content: NostrContent(senderKey: "Sender's Key", senderName: "Sender Name", senderImage: "Sender's Image", content: "Here's a content.\nAnother one.\nCan't get one.", imageContent: nil), replies: [])))
+    SingleActivityView(activity: NostrActivity.example)
 }

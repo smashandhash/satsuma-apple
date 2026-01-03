@@ -26,7 +26,7 @@ struct MainView: View {
             }
             
             Tab("Activity", systemImage: "bell", value: .Activity) {
-                ActivitiesVIew(activities: activities)
+                ActivitiesView(activities: activities)
                     .padding()
             }
         }.tabViewStyle(.sidebarAdaptable)

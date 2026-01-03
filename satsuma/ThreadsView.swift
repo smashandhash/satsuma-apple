@@ -37,13 +37,16 @@ struct ThreadsView: View {
 }
 
 #Preview {
-    ThreadsView(threads: Array(repeating: NostrThread(id: UUID(), content: NostrContent(senderKey: "Key", senderName: "Sender's Name", senderImage: "Sender's Image", content: "This is a content \nThat's another content", imageContent: nil), replies: []), count: 100))
+    ThreadsView(threads: Array(repeating: NostrThread.exampleWithoutReplies, count: 100))
 }
 
 struct NostrThread: Hashable, Identifiable {
     let id: UUID
     let content: NostrContent
     let replies: [NostrReply]
+    
+    static let exampleWithoutReplies = NostrThread(id: UUID(), content: NostrContent.example, replies: [])
+    static let exampleWithReplies = NostrThread(id: UUID(), content: NostrContent.example, replies: Array.init(repeating: NostrReply.example, count: 20))
 }
 
 struct NostrContent: Hashable {
@@ -52,4 +55,6 @@ struct NostrContent: Hashable {
     let senderImage: String
     let content: String
     let imageContent: String?
+    
+    static let example = NostrContent(senderKey: "Key", senderName: "Sender's Name", senderImage: "Sender's Image", content: "This is a content \nThat's another content", imageContent: nil)
 }
