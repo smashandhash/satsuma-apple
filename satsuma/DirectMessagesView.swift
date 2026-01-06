@@ -11,18 +11,22 @@ struct DirectMessagesView: View {
     let messages: [NostrDirectMessage]
     
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                VStack(spacing: 10) {
-                    ForEach(messages) { message in
-                        SingleDirectMessageView(message: message)
+        if messages.isEmpty {
+            EmptyStateView(originState: .DMs)
+        } else {
+            NavigationStack {
+                ScrollView {
+                    VStack(spacing: 10) {
+                        ForEach(messages) { message in
+                            SingleDirectMessageView(message: message)
+                        }
                     }
                 }
+#if !os(macOS)
+                .navigationBarTitleDisplayMode(.inline)
+#endif
+                .navigationTitle("DMs")
             }
-            #if !os(macOS)
-            .navigationBarTitleDisplayMode(.inline)
-            #endif
-            .navigationTitle("DMs")
         }
     }
 }

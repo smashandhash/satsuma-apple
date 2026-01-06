@@ -11,6 +11,7 @@ struct RepliesView: View {
     @State private var previousContent: NostrContent?
     @State var thread: NostrThread
     @State var existingDraft: String = ""
+    @FocusState var isFocusOnDraft: Bool
     
     var body: some View {
         VStack(spacing: 5) {
@@ -26,12 +27,20 @@ struct RepliesView: View {
                 }
             }
             
-            TextField("", text: $existingDraft)
+            TextField("Write your message here", text: $existingDraft)
                 .onSubmit {
                     // TODO: Send Nostr
                 }
                 .border(.black)
                 .padding()
+                .focused($isFocusOnDraft)
+        }
+        .toolbar {
+            if isFocusOnDraft {
+                Button("Done") {
+                    isFocusOnDraft = false
+                }
+            }
         }
     }
 }

@@ -12,7 +12,7 @@ struct ActivitiesView: View {
     
     var body: some View {
         if activities.isEmpty {
-            EmptyActivitiesView()
+            EmptyStateView(originState: .Activities)
         } else {
             NavigationStack {
                 ScrollView {
