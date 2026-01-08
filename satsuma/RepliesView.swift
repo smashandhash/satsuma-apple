@@ -27,13 +27,7 @@ struct RepliesView: View {
                 }
             }
             
-            TextField("Write your message here", text: $existingDraft)
-                .onSubmit {
-                    // TODO: Send Nostr
-                }
-                .border(.black)
-                .padding()
-                .focused($isFocusOnDraft)
+            TextFieldAndSendButtonView(sendMessage: sendMessage, existingDraft: $existingDraft)
         }
         .toolbar {
             if isFocusOnDraft {
@@ -42,6 +36,10 @@ struct RepliesView: View {
                 }
             }
         }
+    }
+    
+    func sendMessage() {
+        // TODO: Send Nostr
     }
 }
 

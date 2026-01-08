@@ -10,7 +10,7 @@ import SwiftUI
 struct ThreadsView: View {
     @State private var previousContent: NostrContent? = nil
     @State var threads: [NostrThread] = []
-    @State var textDraft: String = ""
+    @State var existingDraft: String = ""
     
     var body: some View {
         VStack(spacing: 5) {
@@ -26,13 +26,12 @@ struct ThreadsView: View {
                 }.frame(maxWidth: .infinity, alignment: .leading)
             }
             
-            TextField("", text: $textDraft)
-                .onSubmit {
-                    // TODO: Send Nostr
-                }
-                .border(.black)
-                .padding()
+            TextFieldAndSendButtonView(sendMessage: sendMessage, existingDraft: $existingDraft)
         }
+    }
+    
+    func sendMessage() {
+        // TODO: Send Nostr
     }
 }
 

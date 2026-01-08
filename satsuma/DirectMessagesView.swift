@@ -9,25 +9,34 @@ import SwiftUI
 
 struct DirectMessagesView: View {
     let messages: [NostrDirectMessage]
+    @State private var existingDraft: String = ""
     
     var body: some View {
         if messages.isEmpty {
             EmptyStateView(originState: .DMs)
         } else {
-            NavigationStack {
-                ScrollView {
-                    VStack(spacing: 10) {
-                        ForEach(messages) { message in
-                            SingleDirectMessageView(message: message)
+            VStack {
+                NavigationStack {
+                    ScrollView {
+                        VStack(spacing: 10) {
+                            ForEach(messages) { message in
+                                SingleDirectMessageView(message: message)
+                            }
                         }
                     }
-                }
 #if !os(macOS)
-                .navigationBarTitleDisplayMode(.inline)
+                    .navigationBarTitleDisplayMode(.inline)
 #endif
-                .navigationTitle("DMs")
+                    .navigationTitle("DMs")
+                }
+                
+                TextFieldAndSendButtonView(sendMessage: sendMessage, existingDraft: $existingDraft)
             }
         }
+    }
+    
+    func sendMessage() {
+        // TODO: Send Nostr
     }
 }
 
