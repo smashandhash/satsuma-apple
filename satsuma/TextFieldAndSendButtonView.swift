@@ -23,6 +23,7 @@ struct TextFieldAndSendButtonView: View {
             Button(action: sendMessage) {
                 Image(systemName: "paperlane")
             }
+            .disabled(existingDraft == "")
         }
     }
 }
