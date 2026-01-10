@@ -10,6 +10,7 @@ import SwiftUI
 struct TextFieldAndSendButtonView: View {
     var sendMessage: () -> Void
     @Binding var existingDraft: String
+    @State private var isShowingAlert = false
     @FocusState private var isFocusOnDraft
     
     var body: some View {
@@ -24,6 +25,10 @@ struct TextFieldAndSendButtonView: View {
                 Image(systemName: "paperlane")
             }
             .disabled(existingDraft == "")
+        }.alert("Empty", isPresented: $isShowingAlert) {
+            
+        } message: {
+            Text("Cannot send an empty message.")
         }
     }
 }
