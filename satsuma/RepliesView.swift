@@ -39,7 +39,7 @@ struct RepliesView: View {
     }
     
     func sendMessage() {
-        // TODO: Send Nostr
+        print("Send Nostr")
     }
 }
 
