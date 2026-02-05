@@ -10,7 +10,7 @@ import SwiftUI
 struct RepliesView: View {
     @State private var previousContent: NostrContent?
     @State var thread: NostrThread
-    @State var existingDraft: String = ""
+    @SceneStorage("existingDraft") var existingDraft: String = ""
     @FocusState var isFocusOnDraft: Bool
     
     var body: some View {
