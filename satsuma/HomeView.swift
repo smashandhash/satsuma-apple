@@ -11,28 +11,22 @@ struct HomeView: View {
     @State var channels: [NostrChannel]
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                LinearGradient(stops: [
-                    .init(color: .orange, location: 0),
-                    .init(color: .white, location: 0.2)
-                ], startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
-                
-                ScrollView {
-                    VStack(spacing: 10) {
-                        ForEach(channels) { channel in
-                            NavigationLink(channel.channelName, value: channel.threads)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-                    }.navigationDestination(for: NostrChannel.self) { channel in
-                        ThreadsView(threads: channel.threads)
-                    }.padding()
-                }
-#if !os(macOS)
-                .navigationBarTitleDisplayMode(.inline)
-#endif
-                .navigationTitle("Home")
+        ZStack {
+            LinearGradient(stops: [
+                .init(color: .orange, location: 0),
+                .init(color: .white, location: 0.2)
+            ], startPoint: .top, endPoint: .bottom)
+            .ignoresSafeArea()
+            
+            ScrollView {
+                VStack(spacing: 10) {
+                    ForEach(channels) { channel in
+                        NavigationLink(channel.channelName, value: channel.threads)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                }.navigationDestination(for: NostrChannel.self) { channel in
+                    ThreadsView(threads: channel.threads)
+                }.padding()
             }
         }
     }

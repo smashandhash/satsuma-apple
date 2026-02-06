@@ -14,22 +14,29 @@ struct MainView: View {
     @State var activities: [NostrActivity] = []
     
     var body: some View {
-        TabView(selection: $currentTab) {
-            Tab("Home", systemImage: "house", value: .Home) {
-                HomeView(channels: channels)
-                    .padding()
+        NavigationView {
+            TabView(selection: $currentTab) {
+                Tab("Home", systemImage: "house", value: .Home) {
+                    HomeView(channels: channels)
+                        .padding(.bottom)
+                }
+                
+                Tab("DMs", systemImage: "bubble", value: .DMs) {
+                    DirectMessagesView(messages: messages)
+                        .padding()
+                }
+                
+                Tab("Activity", systemImage: "bell", value: .Activity) {
+                    ActivitiesView(activities: activities)
+                        .padding()
+                }
             }
-            
-            Tab("DMs", systemImage: "bubble", value: .DMs) {
-                DirectMessagesView(messages: messages)
-                    .padding()
-            }
-            
-            Tab("Activity", systemImage: "bell", value: .Activity) {
-                ActivitiesView(activities: activities)
-                    .padding()
-            }
-        }.tabViewStyle(.sidebarAdaptable)
+            .tabViewStyle(.sidebarAdaptable)
+#if !os(macOS)
+            .navigationBarTitleDisplayMode(.inline)
+#endif
+            .navigationTitle(currentTab.rawValue)
+        }
     }
 }
 
@@ -45,9 +52,9 @@ struct MainView: View {
                 count: 20))
 }
 
-enum Tabs: Equatable, Hashable {
-    case Home
-    case DMs
-    case Activity
-    case Search
+enum Tabs: String, Equatable, Hashable {
+    case Home = "Home"
+    case DMs = "DMs"
+    case Activity = "Activities"
+    case Search = "Search"
 }

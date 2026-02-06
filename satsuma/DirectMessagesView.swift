@@ -16,21 +16,13 @@ struct DirectMessagesView: View {
             EmptyStateView(originState: .DMs)
         } else {
             VStack {
-                NavigationStack {
-                    ScrollView {
-                        VStack(spacing: 10) {
-                            ForEach(messages) { message in
-                                SingleDirectMessageView(message: message)
-                            }
+                ScrollView {
+                    VStack(spacing: 10) {
+                        ForEach(messages) { message in
+                            SingleDirectMessageView(message: message)
                         }
                     }
-#if !os(macOS)
-                    .navigationBarTitleDisplayMode(.inline)
-#endif
-                    .navigationTitle("DMs")
                 }
-                
-                TextFieldAndSendButtonView(sendMessage: sendMessage, existingDraft: $existingDraft)
             }
         }
     }

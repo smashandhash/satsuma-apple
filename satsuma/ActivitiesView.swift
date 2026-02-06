@@ -14,21 +14,15 @@ struct ActivitiesView: View {
         if activities.isEmpty {
             EmptyStateView(originState: .Activities)
         } else {
-            NavigationStack {
-                ScrollView {
-                    ForEach(activities) { activity in
-                        NavigationLink {
-                            // TODO: Not sure this is a proper implementation to load a Thread or Replies
-                            ThreadsView(threads: [activity.thread])
-                        } label: {
-                            SingleActivityView(activity: activity)
-                        }
+            ScrollView {
+                ForEach(activities) { activity in
+                    NavigationLink {
+                        // TODO: Not sure this is a proper implementation to load a Thread or Replies
+                        ThreadsView(threads: [activity.thread])
+                    } label: {
+                        SingleActivityView(activity: activity)
                     }
                 }
-#if !os(macOS)
-                .navigationBarTitleDisplayMode(.inline)
-#endif
-                .navigationTitle("Activities")
             }
         }
     }
