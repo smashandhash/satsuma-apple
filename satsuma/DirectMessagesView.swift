@@ -12,17 +12,28 @@ struct DirectMessagesView: View {
     @State private var existingDraft: String = ""
     
     var body: some View {
-        if messages.isEmpty {
-            EmptyStateView(originState: .DMs)
-        } else {
+        ZStack(alignment: .bottomTrailing) {
             VStack {
-                ScrollView {
-                    VStack(spacing: 10) {
-                        ForEach(messages) { message in
-                            SingleDirectMessageView(message: message)
+                if messages.isEmpty {
+                    EmptyStateView(originState: .DMs)
+                } else {
+                    VStack {
+                        ScrollView {
+                            VStack(spacing: 10) {
+                                ForEach(messages) { message in
+                                    SingleDirectMessageView(message: message)
+                                }
+                            }
                         }
                     }
                 }
+                
+                Button {
+                    
+                } label: {
+                    Image(systemName: "plus")
+                }
+                .padding()
             }
         }
     }

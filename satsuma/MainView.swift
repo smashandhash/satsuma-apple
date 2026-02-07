@@ -23,7 +23,6 @@ struct MainView: View {
                 
                 Tab("DMs", systemImage: "bubble", value: .DMs) {
                     DirectMessagesView(messages: messages)
-                        .padding()
                 }
                 
                 Tab("Activity", systemImage: "bell", value: .Activity) {
