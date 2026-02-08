@@ -32,6 +32,11 @@ struct DirectMessagesView: View {
                     
                 } label: {
                     Image(systemName: "plus")
+                        .font(.title.weight(.semibold))
+                        .padding()
+                        .background(.orange)
+                        .foregroundStyle(.white)
+                        .clipShape(Circle())
                 }
                 .padding()
             }
