@@ -12,35 +12,31 @@ struct DirectMessagesView: View {
     @State private var existingDraft: String = ""
     
     var body: some View {
-        ZStack(alignment: .bottomTrailing) {
+        if messages.isEmpty {
+            EmptyStateView(originState: .DMs)
+        } else {
             VStack {
-                if messages.isEmpty {
-                    EmptyStateView(originState: .DMs)
-                } else {
-                    VStack {
-                        ScrollView {
-                            VStack(spacing: 10) {
-                                ForEach(messages) { message in
-                                    SingleDirectMessageView(message: message)
-                                }
-                            }
+                ScrollView {
+                    VStack(spacing: 10) {
+                        ForEach(messages) { message in
+                            SingleDirectMessageView(message: message)
                         }
                     }
                 }
-                
-                Button {
-                    
-                } label: {
-                    Image(systemName: "plus")
-                        .font(.title.weight(.semibold))
-                        .padding()
-                        .background(.orange)
-                        .foregroundStyle(.white)
-                        .clipShape(Circle())
-                }
-                .padding()
             }
         }
+        
+        Button {
+            
+        } label: {
+            Image(systemName: "plus")
+                .font(.title.weight(.semibold))
+                .padding()
+                .background(.orange)
+                .foregroundStyle(.white)
+                .clipShape(Circle())
+        }
+        .padding()
     }
     
     func sendMessage() {

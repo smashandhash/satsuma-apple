@@ -14,27 +14,29 @@ struct MainView: View {
     @State var activities: [NostrActivity] = []
     
     var body: some View {
-        NavigationView {
-            TabView(selection: $currentTab) {
-                Tab("Home", systemImage: "house", value: .Home) {
-                    HomeView(channels: channels)
-                        .padding(.bottom)
+        ZStack(alignment: .bottomTrailing) {
+            NavigationView {
+                TabView(selection: $currentTab) {
+                    Tab("Home", systemImage: "house", value: .Home) {
+                        HomeView(channels: channels)
+                            .padding(.bottom)
+                    }
+                    
+                    Tab("DMs", systemImage: "bubble", value: .DMs) {
+                        DirectMessagesView(messages: messages)
+                    }
+                    
+                    Tab("Activity", systemImage: "bell", value: .Activity) {
+                        ActivitiesView(activities: activities)
+                            .padding()
+                    }
                 }
-                
-                Tab("DMs", systemImage: "bubble", value: .DMs) {
-                    DirectMessagesView(messages: messages)
-                }
-                
-                Tab("Activity", systemImage: "bell", value: .Activity) {
-                    ActivitiesView(activities: activities)
-                        .padding()
-                }
-            }
-            .tabViewStyle(.sidebarAdaptable)
+                .tabViewStyle(.sidebarAdaptable)
 #if !os(macOS)
-            .navigationBarTitleDisplayMode(.inline)
+                .navigationBarTitleDisplayMode(.inline)
 #endif
-            .navigationTitle(currentTab.rawValue)
+                .navigationTitle(currentTab.rawValue)
+            }
         }
     }
 }
