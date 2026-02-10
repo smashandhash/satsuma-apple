@@ -12,35 +12,45 @@ struct DirectMessagesView: View {
     @State private var existingDraft: String = ""
     
     var body: some View {
-        if messages.isEmpty {
-            EmptyStateView(originState: .DMs)
-        } else {
-            VStack {
-                ScrollView {
-                    VStack(spacing: 10) {
-                        ForEach(messages) { message in
-                            SingleDirectMessageView(message: message)
-                        }
+        ZStack(alignment: .bottomTrailing) {
+            if messages.isEmpty {
+                EmptyStateView(originState: .DMs)
+                    .frame(maxHeight: .infinity)
+            } else {
+                List {
+                    ForEach(messages) { message in
+                        SingleDirectMessageView(message: message)
                     }
                 }
+                .refreshable {
+                    loadMessage()
+                }
+                .onAppear {
+                    UIRefreshControl.appearance().tintColor = .orange
+                    
+                }
             }
-        }
-        
-        Button {
             
-        } label: {
-            Image(systemName: "plus")
-                .font(.title.weight(.semibold))
-                .padding()
-                .background(.orange)
-                .foregroundStyle(.white)
-                .clipShape(Circle())
+            Button {
+                newMessage()
+            } label: {
+                Image(systemName: "plus")
+                    .font(.title.weight(.semibold))
+                    .padding()
+                    .background(.orange)
+                    .foregroundStyle(.white)
+                    .clipShape(Circle())
+            }
+            .padding()
         }
-        .padding()
     }
     
-    func sendMessage() {
-        // TODO: Send Nostr
+    func loadMessage() {
+        // TODO: Get from Nostr
+    }
+    
+    func newMessage() {
+        // TODO: Create new message to new sender
     }
 }
 

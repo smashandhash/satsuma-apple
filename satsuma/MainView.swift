@@ -12,45 +12,48 @@ struct MainView: View {
     @State var channels: [NostrChannel] = []
     @State var messages: [NostrDirectMessage] = []
     @State var activities: [NostrActivity] = []
-    
+
     var body: some View {
-        ZStack(alignment: .bottomTrailing) {
-            NavigationView {
-                TabView(selection: $currentTab) {
-                    Tab("Home", systemImage: "house", value: .Home) {
-                        HomeView(channels: channels)
-                            .padding(.bottom)
-                    }
-                    
-                    Tab("DMs", systemImage: "bubble", value: .DMs) {
-                        DirectMessagesView(messages: messages)
-                    }
-                    
-                    Tab("Activity", systemImage: "bell", value: .Activity) {
-                        ActivitiesView(activities: activities)
-                            .padding()
-                    }
+        NavigationView {
+            TabView(selection: $currentTab) {
+                Tab("Home", systemImage: "house", value: .Home) {
+                    HomeView(channels: channels)
+                        .padding(.bottom)
                 }
-                .tabViewStyle(.sidebarAdaptable)
-#if !os(macOS)
-                .navigationBarTitleDisplayMode(.inline)
-#endif
-                .navigationTitle(currentTab.rawValue)
+
+                Tab("DMs", systemImage: "bubble", value: .DMs) {
+                    DirectMessagesView(messages: messages)
+                }
+
+                Tab("Activity", systemImage: "bell", value: .Activity) {
+                    ActivitiesView(activities: activities)
+                        .padding()
+                }
             }
+            .tabViewStyle(.sidebarAdaptable)
+            #if !os(macOS)
+                .navigationBarTitleDisplayMode(.inline)
+            #endif
+            .navigationTitle(currentTab.rawValue)
         }
     }
 }
 
 #Preview {
-    MainView(channels: Array(
-        repeating: NostrChannel.example,
-        count: 100),
-             messages: Array(
-                repeating: NostrDirectMessage.example,
-                count: 20),
-             activities: Array(
-                repeating: NostrActivity.example,
-                count: 20))
+    MainView(
+        channels: Array(
+            repeating: NostrChannel.example,
+            count: 100
+        ),
+        messages: Array(
+            repeating: NostrDirectMessage.example,
+            count: 20
+        ),
+        activities: Array(
+            repeating: NostrActivity.example,
+            count: 20
+        )
+    )
 }
 
 enum Tabs: String, Equatable, Hashable {
