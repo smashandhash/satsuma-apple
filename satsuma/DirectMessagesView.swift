@@ -12,36 +12,37 @@ struct DirectMessagesView: View {
     @State private var existingDraft: String = ""
     
     var body: some View {
-        ZStack(alignment: .bottomTrailing) {
-            if messages.isEmpty {
-                EmptyStateView(originState: .DMs)
-                    .frame(maxHeight: .infinity)
-            } else {
-                List {
-                    ForEach(messages) { message in
-                        SingleDirectMessageView(message: message)
+        NavigationView {
+            ZStack(alignment: .bottomTrailing) {
+                if messages.isEmpty {
+                    EmptyStateView(originState: .DMs)
+                        .frame(maxHeight: .infinity)
+                } else {
+                    List {
+                        ForEach(messages) { message in
+                            SingleDirectMessageView(message: message)
+                        }
+                    }
+                    .refreshable {
+                        loadMessage()
+                    }
+                    .onAppear {
+                        UIRefreshControl.appearance().tintColor = .orange
                     }
                 }
-                .refreshable {
-                    loadMessage()
+                
+                NavigationLink {
+                    NewChatView()
+                } label: {
+                    Image(systemName: "plus")
+                        .font(.title.weight(.semibold))
+                        .padding()
+                        .background(.orange)
+                        .foregroundStyle(.white)
+                        .clipShape(Circle())
                 }
-                .onAppear {
-                    UIRefreshControl.appearance().tintColor = .orange
-                    
-                }
+                .padding()
             }
-            
-            Button {
-                newMessage()
-            } label: {
-                Image(systemName: "plus")
-                    .font(.title.weight(.semibold))
-                    .padding()
-                    .background(.orange)
-                    .foregroundStyle(.white)
-                    .clipShape(Circle())
-            }
-            .padding()
         }
     }
     
