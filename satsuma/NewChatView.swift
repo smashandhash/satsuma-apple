@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct NewChatView: View {
+    @State var userKeyword: String = ""
+    
     var body: some View {
         Form {
-            TextField("Search User", text: <#T##Binding<String>#>)
+            TextField("Search User", text: $userKeyword)
+            List {
+                // TODO: User added
+            }
         }
     }
 }
