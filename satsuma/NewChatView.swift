@@ -16,6 +16,12 @@ struct NewChatView: View {
             List {
                 // TODO: User added
             }
+            Button {
+                // TODO: Create a new conversation
+            } label: {
+                Text("Create Chat")
+            }
+
         }
     }
 }
