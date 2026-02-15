@@ -10,6 +10,7 @@ import SwiftUI
 struct DirectMessagesView: View {
     let messages: [NostrDirectMessage]
     @State private var existingDraft: String = ""
+    @State private var showingNewChatView: Bool = false
     
     var body: some View {
         NavigationView {
@@ -31,8 +32,8 @@ struct DirectMessagesView: View {
                     }
                 }
                 
-                NavigationLink {
-                    NewChatView()
+                Button {
+                    showingNewChatView = true
                 } label: {
                     Image(systemName: "plus")
                         .font(.title.weight(.semibold))
@@ -42,6 +43,9 @@ struct DirectMessagesView: View {
                         .clipShape(Circle())
                 }
                 .padding()
+                .popover(isPresented: $showingNewChatView) {
+                    NewChatView()
+                }
             }
         }
     }
