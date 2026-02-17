@@ -9,13 +9,16 @@ import SwiftUI
 
 struct NewChatView: View {
     @State var userKeyword: String = ""
+    @State private var addedUsers: [String] = []
     
     var body: some View {
         NavigationView {
             Form {
                 TextField("Search User", text: $userKeyword)
                 List {
-                    // TODO: User added
+                    ForEach(addedUsers, id: \.self) { _ in
+                        // TODO: Show the new UI
+                    }
                 }
             }
             .navigationTitle("Create New Chat")
