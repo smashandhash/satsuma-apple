@@ -16,8 +16,10 @@ struct NewChatView: View {
             Form {
                 TextField("Search User", text: $userKeyword)
                 List {
-                    ForEach(addedUsers, id: \.self) { _ in
-                        // TODO: Show the new UI
+                    ForEach(Array(addedUsers).enumerated(), id: \.self) { index, addedUser in
+                        NewChatUserAddedView(name: addedUser) {
+                            addedUsers.remove(at: index)
+                        }
                     }
                 }
             }
