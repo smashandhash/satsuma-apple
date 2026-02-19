@@ -16,9 +16,9 @@ struct NewChatView: View {
             Form {
                 TextField("Search User", text: $userKeyword)
                 List {
-                    ForEach(Array(addedUsers).enumerated(), id: \.self) { index, addedUser in
+                    ForEach(addedUsers, id: \.self) { addedUser in
                         NewChatUserAddedView(name: addedUser) {
-                            addedUsers.remove(at: index)
+                            // TODO: Remove existing user based on the NPUB instead of the name
                         }
                     }
                 }
