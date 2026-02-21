@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NewChatView: View {
     @State var userKeyword: String = ""
-    @State private var addedUsers: [String] = []
+    @State var addedUsers: [String] = []
     
     var body: some View {
         NavigationView {
@@ -39,5 +39,5 @@ struct NewChatView: View {
 }
 
 #Preview {
-    NewChatView()
+    NewChatView(userKeyword: "John", addedUsers: ["John", "Smith"])
 }

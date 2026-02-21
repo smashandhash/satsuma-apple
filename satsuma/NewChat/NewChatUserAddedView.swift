@@ -15,6 +15,8 @@ struct NewChatUserAddedView: View {
         HStack {
             Text(name)
             
+            Spacer()
+            
             Button {
                 action()
             } label: {
