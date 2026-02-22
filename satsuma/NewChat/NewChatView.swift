@@ -15,13 +15,7 @@ struct NewChatView: View {
         NavigationView {
             Form {
                 TextField("Search User", text: $userKeyword)
-                List {
-                    ForEach(addedUsers, id: \.self) { addedUser in
-                        NewChatUserAddedView(name: addedUser) {
-                            // TODO: Remove existing user based on the NPUB instead of the name
-                        }
-                    }
-                }
+                NewChatAddedListView(addedList: addedUsers)
             }
             .navigationTitle("Create New Chat")
 #if !os(macOS)
@@ -39,5 +33,5 @@ struct NewChatView: View {
 }
 
 #Preview {
-    NewChatView(userKeyword: "John", addedUsers: ["John", "Smith"])
+    NewChatView(userKeyword: "John", addedUsers: Array(repeating: "Smith", count: 20))
 }
