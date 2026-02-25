@@ -1,0 +1,187 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:140.0) Gecko/20100101 Firefox/140.0" version="29.2.7" pages="2">
+  <diagram name="Onion Architecture" id="xCGLSSG9OP_Dv-EwXcR8">
+    <mxGraphModel dx="2965" dy="1770" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="310K3LvgBpCMQwBgyjzI-37" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;align=left;fillColor=#fa6800;fontColor=#000000;strokeColor=#C73500;" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 35px;&quot;&gt;Chat&lt;/font&gt;&lt;/div&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="1400" width="1400" x="170" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="310K3LvgBpCMQwBgyjzI-22" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;align=left;fillColor=#f0a30a;fontColor=#000000;strokeColor=#BD7000;" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 35px;&quot;&gt;Thread List&lt;/font&gt;&lt;/div&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="1250" width="1250" x="310" y="475" as="geometry" />
+        </mxCell>
+        <mxCell id="310K3LvgBpCMQwBgyjzI-21" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;align=left;fillColor=#e3c800;fontColor=#000000;strokeColor=#B09500;" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 35px;&quot;&gt;Thread&lt;/font&gt;&lt;/div&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="1000" width="1000" x="550" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="310K3LvgBpCMQwBgyjzI-9" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;align=left;fillColor=#ffcd28;strokeColor=#d79b00;gradientColor=#ffa500;" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 35px;&quot;&gt;Reply List&lt;/font&gt;&lt;/div&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="730" width="730" x="810" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="310K3LvgBpCMQwBgyjzI-7" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;align=left;fillColor=#fff2cc;gradientColor=#ffd966;strokeColor=#d6b656;" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 35px;&quot;&gt;Reply Message&lt;/font&gt;&lt;/div&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="500" width="500" x="1020" y="855" as="geometry" />
+        </mxCell>
+        <mxCell id="310K3LvgBpCMQwBgyjzI-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" value="Send message" vertex="1">
+          <mxGeometry height="90" width="90" x="1275" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="310K3LvgBpCMQwBgyjzI-3" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;fillColor=#dae8fc;gradientColor=#7ea6e0;strokeColor=#6c8ebf;" value="Upload images" vertex="1">
+          <mxGeometry height="90" width="90" x="1370" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="310K3LvgBpCMQwBgyjzI-4" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="Edit message" vertex="1">
+          <mxGeometry height="90" width="90" x="1370" y="1171" as="geometry" />
+        </mxCell>
+        <mxCell id="310K3LvgBpCMQwBgyjzI-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;fillColor=#d5e8d4;gradientColor=#97d077;strokeColor=#82b366;" value="Hide message" vertex="1">
+          <mxGeometry height="90" width="90" x="1400" y="1060" as="geometry" />
+        </mxCell>
+        <mxCell id="310K3LvgBpCMQwBgyjzI-6" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;fillColor=#e6d0de;gradientColor=#d5739d;strokeColor=#996185;" value="Upload files" vertex="1">
+          <mxGeometry height="90" width="90" x="1275" y="1236" as="geometry" />
+        </mxCell>
+        <mxCell id="310K3LvgBpCMQwBgyjzI-53" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" value="Send message" vertex="1">
+          <mxGeometry height="90" width="90" x="810" y="765" as="geometry" />
+        </mxCell>
+        <mxCell id="310K3LvgBpCMQwBgyjzI-54" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;fillColor=#dae8fc;gradientColor=#7ea6e0;strokeColor=#6c8ebf;" value="Upload images" vertex="1">
+          <mxGeometry height="90" width="90" x="740" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="310K3LvgBpCMQwBgyjzI-55" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;fillColor=#d5e8d4;gradientColor=#97d077;strokeColor=#82b366;" value="Hide message" vertex="1">
+          <mxGeometry height="90" width="90" x="716" y="1055" as="geometry" />
+        </mxCell>
+        <mxCell id="310K3LvgBpCMQwBgyjzI-56" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="Edit message" vertex="1">
+          <mxGeometry height="90" width="90" x="740" y="1210" as="geometry" />
+        </mxCell>
+        <mxCell id="310K3LvgBpCMQwBgyjzI-57" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;fillColor=#e6d0de;gradientColor=#d5739d;strokeColor=#996185;" value="Upload files" vertex="1">
+          <mxGeometry height="90" width="90" x="806" y="1340" as="geometry" />
+        </mxCell>
+        <mxCell id="dcRoc6hrVqIZSMx1CL75-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=17;fontStyle=1" value="Still not sure whether I should keep the Hide Message&#39;s Domain on its own or merge it with the Send Message&#39;s Domain." vertex="1">
+          <mxGeometry height="140" width="330" x="1330" y="1670" as="geometry" />
+        </mxCell>
+        <mxCell id="U8Ps1M72rNASgE0ytGYo-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=17;fontStyle=1" value="&lt;div&gt;Also not sure if I should make a whole new big domain for a Message, as it has various behavior.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Meaning, all 5 small domains should be in a single big domain.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;A Message has:&lt;/div&gt;&lt;div&gt;&lt;ol&gt;&lt;li&gt;Send Message&lt;/li&gt;&lt;li&gt;Upload Images&lt;/li&gt;&lt;li&gt;Hide Message&lt;/li&gt;&lt;li&gt;Edit Message&lt;/li&gt;&lt;li&gt;Upload Files&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="340" width="330" x="1330" y="1810" as="geometry" />
+        </mxCell>
+        <mxCell id="3mlGDRxuxvMW1X8H-vkl-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=17;fontStyle=1" value="&lt;div&gt;About separation of Thread and Reply Message, I don&#39;t know if I should make it into single behavior but different Effect, or stay different.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="340" width="330" x="945" y="1810" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="6gMFaXegm2NExlaH5HO0" name="Send Message&#39;s TCA">
+    <mxGraphModel dx="2372" dy="1416" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="nPcQ_tQuwfAV-re1DJxq-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;" value="" vertex="1">
+          <mxGeometry height="240" width="360" x="260" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="nPcQ_tQuwfAV-re1DJxq-2" edge="1" parent="1" source="yU3usUjiW32mknBPQvuc-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nPcQ_tQuwfAV-re1DJxq-1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nPcQ_tQuwfAV-re1DJxq-3" connectable="0" parent="nPcQ_tQuwfAV-re1DJxq-2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="sends" vertex="1">
+          <mxGeometry relative="1" x="-0.25" y="-2" as="geometry">
+            <mxPoint x="10" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yU3usUjiW32mknBPQvuc-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Send Button View" vertex="1">
+          <mxGeometry height="60" width="120" x="80" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nPcQ_tQuwfAV-re1DJxq-5" edge="1" parent="1" source="nPcQ_tQuwfAV-re1DJxq-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nPcQ_tQuwfAV-re1DJxq-4" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nPcQ_tQuwfAV-re1DJxq-6" connectable="0" parent="nPcQ_tQuwfAV-re1DJxq-5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="received by" vertex="1">
+          <mxGeometry relative="1" x="-0.15" y="1" as="geometry">
+            <mxPoint x="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nPcQ_tQuwfAV-re1DJxq-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Send Text Action" vertex="1">
+          <mxGeometry height="60" width="120" x="280" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nPcQ_tQuwfAV-re1DJxq-8" edge="1" parent="1" source="nPcQ_tQuwfAV-re1DJxq-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nPcQ_tQuwfAV-re1DJxq-7" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nPcQ_tQuwfAV-re1DJxq-9" connectable="0" parent="nPcQ_tQuwfAV-re1DJxq-8" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="mutates" vertex="1">
+          <mxGeometry relative="1" x="0.05" y="1" as="geometry">
+            <mxPoint x="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nPcQ_tQuwfAV-re1DJxq-13" edge="1" parent="1" source="nPcQ_tQuwfAV-re1DJxq-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nPcQ_tQuwfAV-re1DJxq-12" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="540" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nPcQ_tQuwfAV-re1DJxq-14" connectable="0" parent="nPcQ_tQuwfAV-re1DJxq-13" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="interacts with" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="-2" as="geometry">
+            <mxPoint x="32" y="58" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nPcQ_tQuwfAV-re1DJxq-16" edge="1" parent="1" source="nPcQ_tQuwfAV-re1DJxq-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nPcQ_tQuwfAV-re1DJxq-15" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="540" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nPcQ_tQuwfAV-re1DJxq-18" connectable="0" parent="nPcQ_tQuwfAV-re1DJxq-16" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="returns" vertex="1">
+          <mxGeometry relative="1" x="0.7083" y="-1" as="geometry">
+            <mxPoint x="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nPcQ_tQuwfAV-re1DJxq-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Send Text Reducer" vertex="1">
+          <mxGeometry height="60" width="120" x="280" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="nPcQ_tQuwfAV-re1DJxq-10" edge="1" parent="1" source="nPcQ_tQuwfAV-re1DJxq-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="yU3usUjiW32mknBPQvuc-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nPcQ_tQuwfAV-re1DJxq-11" connectable="0" parent="nPcQ_tQuwfAV-re1DJxq-10" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="triggers update" vertex="1">
+          <mxGeometry relative="1" x="0.3436" as="geometry">
+            <mxPoint y="-18" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nPcQ_tQuwfAV-re1DJxq-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Send Text State" vertex="1">
+          <mxGeometry height="60" width="120" x="280" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="nPcQ_tQuwfAV-re1DJxq-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Send Text Environment" vertex="1">
+          <mxGeometry height="60" width="120" x="480" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="nPcQ_tQuwfAV-re1DJxq-17" edge="1" parent="1" source="nPcQ_tQuwfAV-re1DJxq-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nPcQ_tQuwfAV-re1DJxq-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nPcQ_tQuwfAV-re1DJxq-19" connectable="0" parent="nPcQ_tQuwfAV-re1DJxq-17" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="sends" vertex="1">
+          <mxGeometry relative="1" x="-0.175" y="1" as="geometry">
+            <mxPoint x="-7" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nPcQ_tQuwfAV-re1DJxq-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Send Text Effect" vertex="1">
+          <mxGeometry height="60" width="120" x="480" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nPcQ_tQuwfAV-re1DJxq-21" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=12;" value="Send Text Store" vertex="1">
+          <mxGeometry height="30" width="100" x="390" y="265" as="geometry" />
+        </mxCell>
+        <mxCell id="RxpwM8HYUpafQqP38944-1" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;SendMessageState&lt;/h1&gt;&lt;p&gt;struct State: Equatable {&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;var text: String&lt;/p&gt;&lt;p&gt;var images: [Image]&lt;/p&gt;&lt;p&gt;var files: [File] ❓&lt;/p&gt;&lt;p&gt;var isEditingText: Bool&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;" vertex="1">
+          <mxGeometry height="200" width="230" x="80" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="qf9b9YnzeF1UYCDV6wAb-1" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;SendMessageAction&lt;/h1&gt;&lt;p&gt;enum Action: Equatable {&lt;/p&gt;&lt;blockquote&gt;case sendMessage&lt;br&gt;case editMessage&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;" vertex="1">
+          <mxGeometry height="130" width="250" x="350" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="qf9b9YnzeF1UYCDV6wAb-2" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;SendMessageEnvironment&lt;/h1&gt;&lt;p&gt;struct Environment {&lt;/p&gt;&lt;blockquote&gt;// Future dependencies...&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;" vertex="1">
+          <mxGeometry height="130" width="320" x="640" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="qf9b9YnzeF1UYCDV6wAb-3" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;SendMessageReducer&lt;/h1&gt;&lt;div&gt;let reducer = Reducer&amp;lt;State, Action, Environment&amp;gt; { state, action, environment in&lt;/div&gt;&lt;blockquote&gt;&lt;div&gt;switch action {&lt;/div&gt;&lt;blockquote&gt;&lt;div&gt;case .sendMessage:&lt;/div&gt;&lt;blockquote&gt;&lt;div&gt;// TODO: I think this one talks with the Effect to the Repository layer&lt;/div&gt;&lt;div&gt;return Effect.none&lt;/div&gt;&lt;/blockquote&gt;&lt;/blockquote&gt;&lt;div&gt;}&lt;/div&gt;&lt;/blockquote&gt;&lt;div&gt;}&lt;/div&gt;" vertex="1">
+          <mxGeometry height="240" width="610" x="1000" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="qf9b9YnzeF1UYCDV6wAb-4" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;SendMessageButton&lt;/h1&gt;&lt;div&gt;Button {&lt;/div&gt;&lt;blockquote&gt;&lt;div&gt;viewStore.send(.sendMessage)&lt;/div&gt;&lt;/blockquote&gt;&lt;div&gt;} label : {&lt;/div&gt;&lt;blockquote&gt;&lt;div&gt;// Button layout...&lt;/div&gt;&lt;/blockquote&gt;&lt;div&gt;}&lt;/div&gt;&lt;div&gt;.buttonStyle(.plain)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="195" width="250" x="760" y="355" as="geometry" />
+        </mxCell>
+        <mxCell id="qf9b9YnzeF1UYCDV6wAb-5" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;EditMessageButton&lt;/h1&gt;&lt;div&gt;Button {&lt;/div&gt;&lt;blockquote&gt;&lt;div&gt;viewStore.send(.editMessage)&lt;/div&gt;&lt;/blockquote&gt;&lt;div&gt;} label : {&lt;/div&gt;&lt;blockquote&gt;&lt;div&gt;// Button layout...&lt;/div&gt;&lt;/blockquote&gt;&lt;div&gt;}&lt;/div&gt;&lt;div&gt;.buttonStyle(.plain)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="195" width="250" x="1090" y="355" as="geometry" />
+        </mxCell>
+        <mxCell id="qf9b9YnzeF1UYCDV6wAb-6" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;SendMessageStore&lt;/h1&gt;&lt;div&gt;ContentView(&lt;/div&gt;&lt;blockquote&gt;&lt;div&gt;store: Store(&lt;/div&gt;&lt;blockquote&gt;&lt;div&gt;initialState: SendMessageState(),&lt;/div&gt;&lt;div&gt;reducer: reducer,&lt;/div&gt;&lt;div&gt;environment: Environment()&lt;/div&gt;&lt;/blockquote&gt;&lt;div&gt;)&lt;/div&gt;&lt;/blockquote&gt;&lt;div&gt;)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="210" width="350" x="760" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="qf9b9YnzeF1UYCDV6wAb-7" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;SendMessageDomain&lt;/h1&gt;&lt;div&gt;struct SendMessageDomain {&lt;/div&gt;&lt;blockquote&gt;&lt;p&gt;struct State: Equatable {&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;var text: String&lt;/p&gt;&lt;p&gt;var images: [Image]&lt;/p&gt;&lt;p&gt;var files: [File] ❓&lt;/p&gt;&lt;p&gt;var isEditingText: Bool&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;&lt;p&gt;enum Action: Equatable {&lt;/p&gt;&lt;blockquote&gt;case sendMessage&lt;br&gt;case editMessage&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;&lt;p&gt;struct Environment {}&lt;/p&gt;&lt;div&gt;let reducer = Reducer&amp;lt;State, Action, Environment&amp;gt; { state, action, environment in&lt;/div&gt;&lt;blockquote&gt;&lt;div&gt;switch action {&lt;/div&gt;&lt;blockquote&gt;&lt;div&gt;case .sendMessage:&lt;/div&gt;&lt;blockquote&gt;&lt;div&gt;// TODO: I think this one talks with the Effect to the Repository layer&lt;/div&gt;&lt;div&gt;return Effect.none&lt;/div&gt;&lt;/blockquote&gt;&lt;/blockquote&gt;&lt;div&gt;}&lt;/div&gt;&lt;/blockquote&gt;&lt;div&gt;}&lt;/div&gt;&lt;/blockquote&gt;&lt;div&gt;}&lt;/div&gt;" vertex="1">
+          <mxGeometry height="550" width="700" x="1400" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="qf9b9YnzeF1UYCDV6wAb-8" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;SendMessageView&lt;/h1&gt;&lt;div&gt;if viewStore.isEditingText {&lt;/div&gt;&lt;blockquote&gt;&lt;div&gt;SendMessageButton(store: self.store)&lt;/div&gt;&lt;/blockquote&gt;&lt;div&gt;} else {&lt;/div&gt;&lt;blockquote&gt;&lt;div&gt;EditMessageButton(store: self.store)&lt;/div&gt;&lt;/blockquote&gt;&lt;div&gt;}&lt;/div&gt;" vertex="1">
+          <mxGeometry height="170" width="290" x="1400" y="620" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
