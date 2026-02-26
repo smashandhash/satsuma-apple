@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:140.0) Gecko/20100101 Firefox/140.0" version="29.2.7" pages="2">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:140.0) Gecko/20100101 Firefox/140.0" version="29.5.3" pages="4">
   <diagram name="Onion Architecture" id="xCGLSSG9OP_Dv-EwXcR8">
-    <mxGraphModel dx="2965" dy="1770" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2636" dy="1573" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -58,11 +58,14 @@
         <mxCell id="3mlGDRxuxvMW1X8H-vkl-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=17;fontStyle=1" value="&lt;div&gt;About separation of Thread and Reply Message, I don&#39;t know if I should make it into single behavior but different Effect, or stay different.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="340" width="330" x="945" y="1810" as="geometry" />
         </mxCell>
+        <mxCell id="IR4se3jtvmhNRh-FQ5UH-2" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fontSize=17;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;MessageStruct&lt;/h1&gt;&lt;p&gt;struct Message {&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;let id: String&lt;/p&gt;&lt;p&gt;let kind: Int&lt;/p&gt;&lt;p&gt;let created_at: String&lt;/p&gt;&lt;p&gt;let pubkey: String&lt;/p&gt;&lt;p&gt;let content: String&lt;/p&gt;&lt;p&gt;let tags: [String: String]&lt;/p&gt;&lt;p&gt;let sig: String&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;" vertex="1">
+          <mxGeometry height="400" width="400" x="40" y="1750" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="6gMFaXegm2NExlaH5HO0" name="Send Message&#39;s TCA">
-    <mxGraphModel dx="2372" dy="1416" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1581" dy="944" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -154,8 +157,8 @@
         <mxCell id="nPcQ_tQuwfAV-re1DJxq-21" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=12;" value="Send Text Store" vertex="1">
           <mxGeometry height="30" width="100" x="390" y="265" as="geometry" />
         </mxCell>
-        <mxCell id="RxpwM8HYUpafQqP38944-1" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;SendMessageState&lt;/h1&gt;&lt;p&gt;struct State: Equatable {&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;var text: String&lt;/p&gt;&lt;p&gt;var images: [Image]&lt;/p&gt;&lt;p&gt;var files: [File] ❓&lt;/p&gt;&lt;p&gt;var isEditingText: Bool&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;" vertex="1">
-          <mxGeometry height="200" width="230" x="80" y="800" as="geometry" />
+        <mxCell id="RxpwM8HYUpafQqP38944-1" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;SendMessageState&lt;/h1&gt;&lt;p&gt;struct State: Equatable {&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;var text: String&lt;/p&gt;&lt;p&gt;var images: [Image]&lt;/p&gt;&lt;p&gt;var files: [File] ❓&lt;/p&gt;&lt;p&gt;var isEditingText: Bool&lt;/p&gt;&lt;p&gt;var message: Message&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;" vertex="1">
+          <mxGeometry height="230" width="230" x="80" y="800" as="geometry" />
         </mxCell>
         <mxCell id="qf9b9YnzeF1UYCDV6wAb-1" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;SendMessageAction&lt;/h1&gt;&lt;p&gt;enum Action: Equatable {&lt;/p&gt;&lt;blockquote&gt;case sendMessage&lt;br&gt;case editMessage&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;" vertex="1">
           <mxGeometry height="130" width="250" x="350" y="800" as="geometry" />
@@ -180,6 +183,75 @@
         </mxCell>
         <mxCell id="qf9b9YnzeF1UYCDV6wAb-8" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;SendMessageView&lt;/h1&gt;&lt;div&gt;if viewStore.isEditingText {&lt;/div&gt;&lt;blockquote&gt;&lt;div&gt;SendMessageButton(store: self.store)&lt;/div&gt;&lt;/blockquote&gt;&lt;div&gt;} else {&lt;/div&gt;&lt;blockquote&gt;&lt;div&gt;EditMessageButton(store: self.store)&lt;/div&gt;&lt;/blockquote&gt;&lt;div&gt;}&lt;/div&gt;" vertex="1">
           <mxGeometry height="170" width="290" x="1400" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="rV2LTE3PwAbHWl7hHmfh-1" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fontSize=12;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;MessageStruct&lt;/h1&gt;&lt;p&gt;struct Message {&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;let id: String&lt;/p&gt;&lt;p&gt;let kind: Int&lt;/p&gt;&lt;p&gt;let created_at: String&lt;/p&gt;&lt;p&gt;let pubkey: String&lt;/p&gt;&lt;p&gt;let content: String&lt;/p&gt;&lt;p&gt;let tags: [String: String]&lt;/p&gt;&lt;p&gt;let sig: String&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;" vertex="1">
+          <mxGeometry height="280" width="210" x="90" y="460" as="geometry" />
+        </mxCell>
+        <UserObject label="NIP C7" link="https://nips.nostr.com/C7" linkTarget="_blank" id="rV2LTE3PwAbHWl7hHmfh-2">
+          <mxCell parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1">
+            <mxGeometry height="30" width="60" x="460" y="535" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="S5AGKs53zt-gAe0X_Mjy" name="Reply Message&#39;s TCA">
+    <mxGraphModel dx="1694" dy="1011" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="fLvd0Lv5x9115u4E1P_H-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;align=left;fillColor=#fff2cc;gradientColor=#ffd966;strokeColor=#d6b656;" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 35px;&quot;&gt;Reply Message&lt;/font&gt;&lt;/div&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="500" width="500" x="20" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="fLvd0Lv5x9115u4E1P_H-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" value="Send message" vertex="1">
+          <mxGeometry height="90" width="90" x="275" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="fLvd0Lv5x9115u4E1P_H-3" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;fillColor=#dae8fc;gradientColor=#7ea6e0;strokeColor=#6c8ebf;" value="Upload images" vertex="1">
+          <mxGeometry height="90" width="90" x="370" y="115" as="geometry" />
+        </mxCell>
+        <mxCell id="fLvd0Lv5x9115u4E1P_H-4" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="Edit message" vertex="1">
+          <mxGeometry height="90" width="90" x="370" y="336" as="geometry" />
+        </mxCell>
+        <mxCell id="fLvd0Lv5x9115u4E1P_H-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;fillColor=#d5e8d4;gradientColor=#97d077;strokeColor=#82b366;" value="Hide message" vertex="1">
+          <mxGeometry height="90" width="90" x="400" y="225" as="geometry" />
+        </mxCell>
+        <mxCell id="fLvd0Lv5x9115u4E1P_H-6" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;fillColor=#e6d0de;gradientColor=#d5739d;strokeColor=#996185;" value="Upload files" vertex="1">
+          <mxGeometry height="90" width="90" x="275" y="401" as="geometry" />
+        </mxCell>
+        <mxCell id="fLvd0Lv5x9115u4E1P_H-7" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;ReplyMessageDomain&lt;/h1&gt;&lt;p&gt;struct ReplyMessageDomain {&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;struct State: Equatable, Identifiable {&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;let id: UUID ❓&lt;/p&gt;&lt;p&gt;var text: String&lt;/p&gt;&lt;p&gt;var images: [Image]&lt;/p&gt;&lt;p&gt;var files: [File] ❓&lt;/p&gt;&lt;p&gt;var isEditingText: Bool&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;var sendMessageState = SendMessageDomain.State()&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;&lt;p&gt;enum Action: Equatable {&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;case sendMessage(SendMessageDomain.Action)&lt;/p&gt;&lt;p&gt;case uploadImages(UploadImagesDomain.Action)&lt;/p&gt;&lt;p&gt;case hideMessage(HideMessageDomain.Action)&lt;/p&gt;&lt;p&gt;case editMessage(EditMessageDomain.Action)&lt;/p&gt;&lt;p&gt;case uploadFiles(UploadFilesDomain.Action)&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;&lt;p&gt;static let reducer = Reducer&amp;lt;State, Action, Environment&amp;gt;&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;.combine(&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;SendMessageDomain.reducer.pullback(&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;state: \.sendMessageState,&lt;/p&gt;&lt;p&gt;action: /ReplyMessageDomain.Action.sendMessage,&lt;/p&gt;&lt;p&gt;environment: { _ in&lt;/p&gt;&lt;/blockquote&gt;&lt;blockquote&gt;&lt;blockquote&gt;&lt;p&gt;SendMessageDomain.Environment()&lt;/p&gt;&lt;/blockquote&gt;&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;}&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;),&lt;/p&gt;&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;.init { state, action, environment in&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;switch action {&lt;/p&gt;&lt;p&gt;case sendMessage(.sendMessage), sendMessage(.editMessage):&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;state.text = ❓&lt;/p&gt;&lt;p&gt;state.images = ❓&lt;/p&gt;&lt;p&gt;state.files = ❓&lt;/p&gt;&lt;p&gt;state.isEditingText = ❓&lt;/p&gt;&lt;p&gt;return .none ❓&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;)&lt;/p&gt;&lt;/blockquote&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;" vertex="1">
+          <mxGeometry height="1030" width="690" x="20" y="550" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="po3eEQdp8_YfqVM7emj_" name="Reply List&#39;s TCA">
+    <mxGraphModel dx="1977" dy="1180" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="IWgDFpK4p1FOrv6YdCMH-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;align=left;fillColor=#ffcd28;strokeColor=#d79b00;gradientColor=#ffa500;" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 35px;&quot;&gt;Reply List&lt;/font&gt;&lt;/div&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="730" width="730" x="60" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="IWgDFpK4p1FOrv6YdCMH-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;align=left;fillColor=#fff2cc;gradientColor=#ffd966;strokeColor=#d6b656;" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;&lt;font style=&quot;font-size: 35px;&quot;&gt;Reply Message&lt;/font&gt;&lt;/div&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="500" width="500" x="270" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="IWgDFpK4p1FOrv6YdCMH-3" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" value="Send message" vertex="1">
+          <mxGeometry height="90" width="90" x="525" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="IWgDFpK4p1FOrv6YdCMH-4" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;fillColor=#dae8fc;gradientColor=#7ea6e0;strokeColor=#6c8ebf;" value="Upload images" vertex="1">
+          <mxGeometry height="90" width="90" x="620" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="IWgDFpK4p1FOrv6YdCMH-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="Edit message" vertex="1">
+          <mxGeometry height="90" width="90" x="620" y="451" as="geometry" />
+        </mxCell>
+        <mxCell id="IWgDFpK4p1FOrv6YdCMH-6" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;fillColor=#d5e8d4;gradientColor=#97d077;strokeColor=#82b366;" value="Hide message" vertex="1">
+          <mxGeometry height="90" width="90" x="650" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="IWgDFpK4p1FOrv6YdCMH-7" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=18;fillColor=#e6d0de;gradientColor=#d5739d;strokeColor=#996185;" value="Upload files" vertex="1">
+          <mxGeometry height="90" width="90" x="525" y="516" as="geometry" />
+        </mxCell>
+        <mxCell id="NutQIlRFEjr5Sf_tc1tw-1" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;ReplyListDomain&lt;/h1&gt;&lt;p&gt;struct ReplyListDomain {&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;struct State: Equatable {&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;var replyListState: IdentifiedArrayOf&amp;lt;ReplyMessageDomain.State&amp;gt; = []&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;&lt;p&gt;enum Action: Equatable {&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;case fetchReplyList&lt;/p&gt;&lt;p&gt;case replyMessage(&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;id: ReplyMessageDomain.State.ID,&amp;nbsp;&lt;/p&gt;&lt;p&gt;action: ReplyMessageDomain.Action&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;)&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;&lt;p&gt;struct Environment {&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;var fetchReplyList: () -&amp;gt; [ReplyMessage]&lt;/p&gt;&lt;p&gt;var uuid: () -&amp;gt; UUID&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;&lt;p&gt;static let reducer = Reducer&amp;lt;State, Action, Environment&amp;gt;&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;.combine(&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;ReplyMessageDomain.reducer.forEach(&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;state: \.replyListState,&lt;/p&gt;&lt;p&gt;action: /ReplyListDomain.Action.replyMessage(id:action:),&lt;/p&gt;&lt;p&gt;environment: { _ in&lt;/p&gt;&lt;/blockquote&gt;&lt;blockquote&gt;&lt;blockquote&gt;&lt;p&gt;ReplyMessageDomain.Environment()&lt;/p&gt;&lt;/blockquote&gt;&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;}&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;),&lt;/p&gt;&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;.init { state, action, environment in&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;switch action {&lt;/p&gt;&lt;p&gt;case fetchReplyList:&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;state.replyListState = IdentifiedArrayOf(&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;uniqueElements: environment.fetchReplyList().map {&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;ReplyMessageDomain.State(&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;)&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;)&lt;/p&gt;&lt;/blockquote&gt;&lt;blockquote&gt;return .none&amp;nbsp;❓&lt;/blockquote&gt;&lt;p&gt;case replyMessage(let id, let action):&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;return .none ❓&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;)&lt;/p&gt;&lt;/blockquote&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;" vertex="1">
+          <mxGeometry height="1030" width="820" x="80" y="800" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
