@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:140.0) Gecko/20100101 Firefox/140.0" version="29.5.3" pages="4">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:140.0) Gecko/20100101 Firefox/140.0" version="29.5.4" pages="4">
   <diagram name="Onion Architecture" id="xCGLSSG9OP_Dv-EwXcR8">
-    <mxGraphModel dx="2636" dy="1573" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2965" dy="1770" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -58,9 +58,19 @@
         <mxCell id="3mlGDRxuxvMW1X8H-vkl-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontSize=17;fontStyle=1" value="&lt;div&gt;About separation of Thread and Reply Message, I don&#39;t know if I should make it into single behavior but different Effect, or stay different.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="340" width="330" x="945" y="1810" as="geometry" />
         </mxCell>
-        <mxCell id="IR4se3jtvmhNRh-FQ5UH-2" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fontSize=17;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;MessageStruct&lt;/h1&gt;&lt;p&gt;struct Message {&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;let id: String&lt;/p&gt;&lt;p&gt;let kind: Int&lt;/p&gt;&lt;p&gt;let created_at: String&lt;/p&gt;&lt;p&gt;let pubkey: String&lt;/p&gt;&lt;p&gt;let content: String&lt;/p&gt;&lt;p&gt;let tags: [String: String]&lt;/p&gt;&lt;p&gt;let sig: String&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;" vertex="1">
-          <mxGeometry height="400" width="400" x="40" y="1750" as="geometry" />
+        <mxCell id="IR4se3jtvmhNRh-FQ5UH-2" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fontSize=17;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;MessageStruct&lt;/h1&gt;&lt;p&gt;struct Message {&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;let id: String&lt;/p&gt;&lt;p&gt;let kind: Int&lt;/p&gt;&lt;p&gt;let created_at: String&lt;/p&gt;&lt;p&gt;let pubkey: String&lt;/p&gt;&lt;p&gt;let content: String&lt;/p&gt;&lt;p&gt;let tags: [[String]]&lt;/p&gt;&lt;p&gt;let sig: String&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;" vertex="1">
+          <mxGeometry height="400" width="270" x="40" y="1750" as="geometry" />
         </mxCell>
+        <UserObject label="NIP-28 for either it&#39;s a main message or reply message" link="https://nips.nostr.com/28#kind-42-create-channel-message" id="W1j5TVyMAYBFL0-jifqj-1">
+          <mxCell parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1">
+            <mxGeometry height="30" width="210" x="410" y="1870" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Sending text, files, and images should have a different effect. Based on this NIP-17." link="https://nips.nostr.com/17" id="W1j5TVyMAYBFL0-jifqj-3">
+          <mxCell parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1">
+            <mxGeometry height="70" width="155" x="437.5" y="1990" as="geometry" />
+          </mxCell>
+        </UserObject>
       </root>
     </mxGraphModel>
   </diagram>
@@ -225,7 +235,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="po3eEQdp8_YfqVM7emj_" name="Reply List&#39;s TCA">
-    <mxGraphModel dx="1977" dy="1180" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1395" dy="833" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -251,7 +261,7 @@
           <mxGeometry height="90" width="90" x="525" y="516" as="geometry" />
         </mxCell>
         <mxCell id="NutQIlRFEjr5Sf_tc1tw-1" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;ReplyListDomain&lt;/h1&gt;&lt;p&gt;struct ReplyListDomain {&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;struct State: Equatable {&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;var replyListState: IdentifiedArrayOf&amp;lt;ReplyMessageDomain.State&amp;gt; = []&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;&lt;p&gt;enum Action: Equatable {&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;case fetchReplyList&lt;/p&gt;&lt;p&gt;case replyMessage(&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;id: ReplyMessageDomain.State.ID,&amp;nbsp;&lt;/p&gt;&lt;p&gt;action: ReplyMessageDomain.Action&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;)&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;&lt;p&gt;struct Environment {&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;var fetchReplyList: () -&amp;gt; [ReplyMessage]&lt;/p&gt;&lt;p&gt;var uuid: () -&amp;gt; UUID&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;&lt;p&gt;static let reducer = Reducer&amp;lt;State, Action, Environment&amp;gt;&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;.combine(&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;ReplyMessageDomain.reducer.forEach(&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;state: \.replyListState,&lt;/p&gt;&lt;p&gt;action: /ReplyListDomain.Action.replyMessage(id:action:),&lt;/p&gt;&lt;p&gt;environment: { _ in&lt;/p&gt;&lt;/blockquote&gt;&lt;blockquote&gt;&lt;blockquote&gt;&lt;p&gt;ReplyMessageDomain.Environment()&lt;/p&gt;&lt;/blockquote&gt;&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;}&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;),&lt;/p&gt;&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;.init { state, action, environment in&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;switch action {&lt;/p&gt;&lt;p&gt;case fetchReplyList:&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;state.replyListState = IdentifiedArrayOf(&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;uniqueElements: environment.fetchReplyList().map {&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;ReplyMessageDomain.State(&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;)&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;)&lt;/p&gt;&lt;/blockquote&gt;&lt;blockquote&gt;return .none&amp;nbsp;❓&lt;/blockquote&gt;&lt;p&gt;case replyMessage(let id, let action):&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;return .none ❓&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;)&lt;/p&gt;&lt;/blockquote&gt;&lt;/blockquote&gt;&lt;p&gt;}&lt;/p&gt;" vertex="1">
-          <mxGeometry height="1030" width="820" x="80" y="800" as="geometry" />
+          <mxGeometry height="1220" width="820" x="80" y="800" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
